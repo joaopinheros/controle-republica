@@ -33,6 +33,7 @@ public class Despesas {
     @JoinColumn(name = "pessoa_id", referencedColumnName = "id_pessoa")
     private Pessoa pessoa;
 
+    /*Construtor para enviar uma requisição */
     public Despesas(DespesasRequestDTO data) {
         this.tituloDespesa = data.tituloDespesa();
         this.valor = data.valor();

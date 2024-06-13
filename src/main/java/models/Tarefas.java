@@ -1,5 +1,6 @@
 package models;
 
+import com.api.controlerepublica.requestdto.TarefaRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,5 +33,12 @@ public class Tarefas {
     @JoinColumn(name = "pessoa_id", referencedColumnName = "id_pessoa")
     private Pessoa pessoa;
 
-
+    /*Construtor para enviar uma requisição */
+    public Tarefas(TarefaRequestDTO data) {
+        this.tituloTarefa = data.tituloTarefa();
+        this.dataRealizacao = data.dataRealizacao();
+        this.status = data.status();
+        this.descricaoTarefa = data.descricaoTarefa();
+        this.pessoa = data.pessoa();
+    }
 }
